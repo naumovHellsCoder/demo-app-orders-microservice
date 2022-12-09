@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  orders:
+    build: .
+    image: "demo-app-orders"
+    container_name: demo-app-orders
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://orders-database:5432/george"
+      SPRING_DATASOURCE_USERNAME: "george"
+      SPRING_DATASOURCE_PASSWORD: "12345"
+    volumes:
+      - "./log:/app/log"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - orders-database
+
+  orders-database:
+    image: "postgres:14.5-alpine"
+    container_name: orders_database
+    restart: "unless-stopped"
+    volumes:
+      - "db-data:/val/lib/postgres/data"
+    environment:
+      POSTGRES_USER: "george"
+      POSTGRES_PASSWORD: "12345"
+    ports:
+      - "5432:5432"
+
+volumes:
+  db-data:
