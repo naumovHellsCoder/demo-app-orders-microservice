@@ -2,14 +2,13 @@ package gmarmari.demo.microservices.orders.api;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModelProperty;
-import io.swagger.v3.oas.annotations.media.Schema;
+//import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
 import java.util.Objects;
 
-@Schema(name = "Product_V1")
+//@Schema(name = "Product_V1")
 public final class ProductDto {
 
     public final long id;
@@ -21,25 +20,17 @@ public final class ProductDto {
     @Nullable
     public final String description;
 
-    @ApiModelProperty(example = "red")
     @Nullable
     public final String color;
 
-    @ApiModelProperty(example = "120")
     public final int lengthMm;
 
-    @ApiModelProperty(example = "120")
     public final int widthMm;
 
-    @ApiModelProperty(example = "120")
     public final int heightMm;
 
-
-    @ApiModelProperty(example = "1500")
     public final int weightGrams;
 
-
-    @ApiModelProperty(example = "8.9")
     public final double prizeEuro;
 
     @JsonCreator
