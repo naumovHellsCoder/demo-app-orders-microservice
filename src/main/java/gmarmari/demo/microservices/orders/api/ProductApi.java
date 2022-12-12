@@ -1,11 +1,14 @@
 package gmarmari.demo.microservices.orders.api;
 
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+
+
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +20,7 @@ public interface ProductApi {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(
-            description = "List all non-group controllers"
+            description = "List all products"
     )
     List<ProductDto> getProducts();
 
@@ -46,6 +49,9 @@ public interface ProductApi {
     )
     @ApiResponses(value = {
             @ApiResponse(
+                    responseCode = "200",
+                    description = "Product was deleted"),
+            @ApiResponse(
                     responseCode = "500",
                     description = "An error occurred by deleting the product")
 
@@ -57,6 +63,9 @@ public interface ProductApi {
             description = "Save the given product"
     )
     @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Product was saved"),
             @ApiResponse(
                     responseCode = "500",
                     description = "An error occurred by saving the product")

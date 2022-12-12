@@ -1,9 +1,10 @@
 package gmarmari.demo.microservices.orders.entities;
 
-import jakarta.persistence.*;
+
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity

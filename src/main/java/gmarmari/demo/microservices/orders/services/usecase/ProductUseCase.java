@@ -3,7 +3,6 @@ package gmarmari.demo.microservices.orders.services.usecase;
 import gmarmari.demo.microservices.orders.entities.ProductDao;
 import gmarmari.demo.microservices.orders.repositories.ProductRepository;
 import gmarmari.demo.microservices.orders.services.ProductService;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
