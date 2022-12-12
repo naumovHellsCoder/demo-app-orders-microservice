@@ -15,7 +15,6 @@ public class TestDataFactory {
 
     public static ProductDao aProductDao() {
         ProductDao product = new ProductDao();
-        product.setVersion(0);
         product.setName("Milk");
         product.setBrand("Milk Maker");
         product.setColor(random.nextBoolean() ? "White" : null);
@@ -31,7 +30,6 @@ public class TestDataFactory {
     public static ProductDto aProductDto() {
         return new ProductDto(
                 random.nextInt(),
-                0,
                 "Milk",
                 "Milk Maker",
                 random.nextBoolean() ? "White" : null,

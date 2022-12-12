@@ -32,7 +32,6 @@ class ProductAdapterTest {
         ProductDao dao = aProductDao();
         ProductDto dto = new ProductDto(
                 dao.getId(),
-                dao.getVersion(),
                 dao.getName(),
                 dao.getBrand(),
                 dao.getDescription(),
@@ -59,7 +58,6 @@ class ProductAdapterTest {
         ProductDao dao = aProductDao();
         ProductDto dto = new ProductDto(
                 dao.getId(),
-                dao.getVersion(),
                 dao.getName(),
                 dao.getBrand(),
                 dao.getDescription(),
@@ -129,7 +127,6 @@ class ProductAdapterTest {
         ProductDto dto = result.get();
 
         assertThat(dto.id).isEqualTo(dao.getId());
-        assertThat(dto.version).isEqualTo(dao.getVersion());
         assertThat(dto.name).isEqualTo(dao.getName());
         assertThat(dto.brand).isEqualTo(dao.getBrand());
         assertThat(dto.description).isEqualTo(dao.getDescription());

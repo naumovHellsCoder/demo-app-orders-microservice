@@ -13,7 +13,6 @@ import java.util.Objects;
 public final class ProductDto {
 
     public final long id;
-    public final int version;
 
     @NonNull
     public final String name;
@@ -45,7 +44,6 @@ public final class ProductDto {
 
     @JsonCreator
     public ProductDto(@JsonProperty("id") long id,
-                      @JsonProperty("version") int version,
                       @NonNull @JsonProperty("name") String name,
                       @NonNull @JsonProperty("brand") String brand,
                       @Nullable @JsonProperty("description") String description,
@@ -56,7 +54,6 @@ public final class ProductDto {
                       @JsonProperty("weightGrams") int weightGrams,
                       @JsonProperty("prizeEuro") double prizeEuro) {
         this.id = id;
-        this.version = version;
         this.name = name;
         this.brand = brand;
         this.description = description;
@@ -73,19 +70,18 @@ public final class ProductDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductDto that = (ProductDto) o;
-        return id == that.id && version == that.version && lengthMm == that.lengthMm && widthMm == that.widthMm && heightMm == that.heightMm && weightGrams == that.weightGrams && Double.compare(that.prizeEuro, prizeEuro) == 0 && Objects.equals(name, that.name) && Objects.equals(brand, that.brand) && Objects.equals(description, that.description) && Objects.equals(color, that.color);
+        return id == that.id && lengthMm == that.lengthMm && widthMm == that.widthMm && heightMm == that.heightMm && weightGrams == that.weightGrams && Double.compare(that.prizeEuro, prizeEuro) == 0 && Objects.equals(name, that.name) && Objects.equals(brand, that.brand) && Objects.equals(description, that.description) && Objects.equals(color, that.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, version, name, brand, description, color, lengthMm, widthMm, heightMm, weightGrams, prizeEuro);
+        return Objects.hash(id, name, brand, description, color, lengthMm, widthMm, heightMm, weightGrams, prizeEuro);
     }
 
     @Override
     public String toString() {
         return "ProductDto{" +
                 "id=" + id +
-                ", version=" + version +
                 ", name='" + name + '\'' +
                 ", brand='" + brand + '\'' +
                 ", description='" + description + '\'' +

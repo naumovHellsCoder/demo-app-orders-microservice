@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="gmarmari" id="changelog-0.1.002">
+        <comment>add initial demo data</comment>
+
+        <insert tableName="products">
+            <column name="name" value="Bio Tee"/>
+            <column name="brand" value="TeeMaker"/>
+            <column name="description" value="Pack with christmas Tea Bio"/>
+            <column name="length_mm" value="130"/>
+            <column name="width_mm" value="140"/>
+            <column name="height_mm" value="150"/>
+            <column name="weight_grams" value="20"/>
+            <column name="prize_euro" value="6.5"/>
+        </insert>
+
+        <insert tableName="products">
+            <column name="name" value="Tee Cup"/>
+            <column name="brand" value="CupMaker"/>
+            <column name="description" value="The perfect cup for tee"/>
+            <column name="color" value="White"/>
+            <column name="material" value="Glass"/>
+            <column name="length_mm" value="124"/>
+            <column name="width_mm" value="123"/>
+            <column name="height_mm" value="121"/>
+            <column name="weight_grams" value="410"/>
+            <column name="prize_euro" value="19.9"/>
+        </insert>
+
+        <insert tableName="orders">
+            <column name="product_id" value="1"/>
+            <column name="username" value="test user"/>
+            <column name="amount" value="3"/>
+            <column name="creation_date" value="2022-10-10 10:10:10"/>
+            <column name="status" value="SUBMITTED"/>
+            <column name="recipient_name" value="Mickey Mouse"/>
+            <column name="recipient_address" value="Disneyland"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>
+
