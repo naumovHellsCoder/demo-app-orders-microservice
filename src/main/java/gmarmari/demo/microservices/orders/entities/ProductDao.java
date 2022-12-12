@@ -14,9 +14,6 @@ public class ProductDao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Version
-    private int version;
-
     @NonNull
     private String name = "";
     @NonNull
@@ -37,14 +34,6 @@ public class ProductDao {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public int getVersion() {
-        return version;
-    }
-
-    public void setVersion(int version) {
-        this.version = version;
     }
 
     @NonNull
@@ -128,19 +117,18 @@ public class ProductDao {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductDao that = (ProductDao) o;
-        return id == that.id && version == that.version && lengthMm == that.lengthMm && widthMm == that.widthMm && heightMm == that.heightMm && weightGrams == that.weightGrams && Double.compare(that.prizeEuro, prizeEuro) == 0 && name.equals(that.name) && brand.equals(that.brand) && Objects.equals(description, that.description) && Objects.equals(color, that.color);
+        return id == that.id && lengthMm == that.lengthMm && widthMm == that.widthMm && heightMm == that.heightMm && weightGrams == that.weightGrams && Double.compare(that.prizeEuro, prizeEuro) == 0 && name.equals(that.name) && brand.equals(that.brand) && Objects.equals(description, that.description) && Objects.equals(color, that.color);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, version, name, brand, description, color, lengthMm, widthMm, heightMm, weightGrams, prizeEuro);
+        return Objects.hash(id, name, brand, description, color, lengthMm, widthMm, heightMm, weightGrams, prizeEuro);
     }
 
     @Override
     public String toString() {
         return "ProductDao{" +
                 "id=" + id +
-                ", version=" + version +
                 ", name='" + name + '\'' +
                 ", brand='" + brand + '\'' +
                 ", description='" + description + '\'' +

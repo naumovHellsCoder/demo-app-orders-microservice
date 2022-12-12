@@ -52,7 +52,6 @@ public class ProductAdapter {
     private static ProductDao convert(ProductDto dto) {
         ProductDao dao = new ProductDao();
         dao.setId(dto.id);
-        dao.setVersion(dto.version);
         dao.setName(dto.name);
         dao.setBrand(dto.brand);
         dao.setDescription(dto.description);
@@ -68,7 +67,6 @@ public class ProductAdapter {
     private static ProductDto convert(ProductDao dao) {
         return new ProductDto(
                 dao.getId(),
-                dao.getVersion(),
                 dao.getName(),
                 dao.getBrand(),
                 dao.getDescription(),

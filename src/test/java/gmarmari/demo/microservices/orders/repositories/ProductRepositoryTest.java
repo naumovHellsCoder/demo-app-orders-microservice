@@ -5,12 +5,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Optional;
 
 import static gmarmari.demo.microservices.orders.TestDataFactory.aProductDao;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@ActiveProfiles("test")
 @DataJpaTest
 class ProductRepositoryTest {
 
@@ -33,7 +35,6 @@ class ProductRepositoryTest {
         assertThat(resultOptional).isPresent();
         ProductDao result = resultOptional.get();
         assertThat(result.getId()).isEqualTo(id);
-        assertThat(result.getVersion()).isEqualTo(product.getVersion());
         assertThat(result.getName()).isEqualTo(product.getName());
         assertThat(result.getDescription()).isEqualTo(product.getDescription());
         assertThat(result.getColor()).isEqualTo(product.getColor());
